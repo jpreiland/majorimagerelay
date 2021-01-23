@@ -1,0 +1,79 @@
+schema {
+  query: RootQueryType
+  mutation: Mutation
+}
+
+"""Exposes a URL that specifies the behaviour of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behaviour of this scalar."""
+  url: String!
+) on SCALAR
+
+type Color {
+  id: ID
+  name: String
+  isArmor: Boolean
+  isClothing: Boolean
+  isContainer: Boolean
+  isFurniture: Boolean
+  isMisc: Boolean
+  isTreasure: Boolean
+  isWeapon: Boolean
+  isWriting: Boolean
+}
+
+type Item {
+  id: ID
+  name: String
+  isArmor: Boolean
+  isClothing: Boolean
+  isContainer: Boolean
+  isFurniture: Boolean
+  isMisc: Boolean
+  isTreasure: Boolean
+  isWeapon: Boolean
+  isWriting: Boolean
+}
+
+type Material {
+  id: ID
+  name: String
+  isArmor: Boolean
+  isClothing: Boolean
+  isContainer: Boolean
+  isFurniture: Boolean
+  isMisc: Boolean
+  isTreasure: Boolean
+  isWeapon: Boolean
+  isWriting: Boolean
+}
+
+type Mutation {
+  addItem(name: String!, isArmor: Boolean, isClothing: Boolean, isContainer: Boolean, isFurniture: Boolean, isMisc: Boolean, isTreasure: Boolean, isWeapon: Boolean, isWriting: Boolean): Item
+  addQuality(name: String!, isArmor: Boolean, isClothing: Boolean, isContainer: Boolean, isFurniture: Boolean, isMisc: Boolean, isTreasure: Boolean, isWeapon: Boolean, isWriting: Boolean): Quality
+  addColor(name: String!, isArmor: Boolean, isClothing: Boolean, isContainer: Boolean, isFurniture: Boolean, isMisc: Boolean, isTreasure: Boolean, isWeapon: Boolean, isWriting: Boolean): Color
+  addMaterial(name: String!, isArmor: Boolean, isClothing: Boolean, isContainer: Boolean, isFurniture: Boolean, isMisc: Boolean, isTreasure: Boolean, isWeapon: Boolean, isWriting: Boolean): Material
+}
+
+type Quality {
+  id: ID
+  name: String
+  isArmor: Boolean
+  isClothing: Boolean
+  isContainer: Boolean
+  isFurniture: Boolean
+  isMisc: Boolean
+  isTreasure: Boolean
+  isWeapon: Boolean
+  isWriting: Boolean
+}
+
+type RootQueryType {
+  item(id: ID): Item
+  itemsAnd(isArmor: Boolean, isClothing: Boolean, isContainer: Boolean, isFurniture: Boolean, isMisc: Boolean, isTreasure: Boolean, isWeapon: Boolean, isWriting: Boolean): [Item]
+  items(isArmor: Boolean, isClothing: Boolean, isContainer: Boolean, isFurniture: Boolean, isMisc: Boolean, isTreasure: Boolean, isWeapon: Boolean, isWriting: Boolean): [Item]
+  qualities(isArmor: Boolean, isClothing: Boolean, isContainer: Boolean, isFurniture: Boolean, isMisc: Boolean, isTreasure: Boolean, isWeapon: Boolean, isWriting: Boolean): [Quality]
+  colors(isArmor: Boolean, isClothing: Boolean, isContainer: Boolean, isFurniture: Boolean, isMisc: Boolean, isTreasure: Boolean, isWeapon: Boolean, isWriting: Boolean): [Color]
+  materials(isArmor: Boolean, isClothing: Boolean, isContainer: Boolean, isFurniture: Boolean, isMisc: Boolean, isTreasure: Boolean, isWeapon: Boolean, isWriting: Boolean): [Material]
+}
+
